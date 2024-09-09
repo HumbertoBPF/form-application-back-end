@@ -19,7 +19,7 @@ will contain the following environment variable:
 you only need "GET, POST")
 
 Then, run "pip install -r requirements.txt" to download the dependencies from PIP. When it is done, you can run the 
-application using the command "flask run --host=0.0.0.0".
+application using the command "flask run --host=0.0.0.0 --port 8000".
 
 # CORS
 

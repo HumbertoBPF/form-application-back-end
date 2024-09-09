@@ -31,6 +31,6 @@ class DietSchema(Schema):
 
 
 class FormSchema(Schema):
-    page_1 = fields.Nested(PersonalDataSchema())
-    page_2 = fields.Nested(DiseasesSchema())
-    page_3 = fields.Nested(DietSchema())
+    page_1 = fields.Nested(PersonalDataSchema(), required=True)
+    page_2 = fields.Nested(DiseasesSchema(), required=True)
+    page_3 = fields.Nested(DietSchema(), required=True)
