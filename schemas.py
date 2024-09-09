@@ -1,12 +1,14 @@
 from marshmallow import Schema, fields, validate
 
+from common.states import STATES
+
 
 class PersonalDataSchema(Schema):
     full_name = fields.Str(required=True)
     national_id = fields.Str(required=True)
     position = fields.Str(required=True)
     city = fields.Str(required=True)
-    state = fields.Str(required=True)
+    state = fields.Str(required=True, validate=validate.OneOf(STATES))
     is_correct = fields.Bool(required=True)
     titularity = fields.Str(required=True, validate=validate.OneOf(["titular", "dependant"]))
     phone = fields.Str(required=True)
@@ -26,7 +28,7 @@ class DiseasesSchema(Schema):
 
 
 class DietSchema(Schema):
-    type = fields.Str()
+    type = fields.Str(required=True, validate=validate.OneOf(["Vegetariano", "Vegano", "Sem Restrição"]))
     options = fields.List(fields.Str)
 
 

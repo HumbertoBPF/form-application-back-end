@@ -1,8 +1,12 @@
 from faker.generator import random
 
+from common.states import STATES
+
+url = "/submitFormulario"
+
 
 def test_form_empty_payload(client):
-    response = client.post("/submitFormulario", json={})
+    response = client.post(url, json={})
     assert response.status_code == 400
 
 
@@ -13,7 +17,7 @@ def test_form(client, faker):
             "national_id": "0123456789",
             "position": "Desenvolvedor",
             "city": "Minha Cidade",
-            "state": "SP",
+            "state": random.choice(STATES),
             "is_correct": True,
             "titularity": "titular",
             "phone": faker.phone_number(),
@@ -48,5 +52,5 @@ def test_form(client, faker):
             ]
         }
     }
-    response = client.post("/submitFormulario", json=payload)
+    response = client.post(url, json=payload)
     assert response.status_code == 200
