@@ -5,6 +5,9 @@ The following packages were used to implement this React project:
 - flask: framework to develop Python web application
 - python-dotenv: package to load environment variables from a .env file
 - marshmallow: package for schema validation and data serialization
+- pytest: testing framework
+- pytest-xdist: parallelize tests
+- pytest-cov: generation of test coverage reports
 
 # Installation
 
@@ -37,3 +40,8 @@ all the endpoints, but in a more general back-end, we could have endpoints that 
 
 I used the marshmallow library to validate the data received via API because it is a good practice to validate the 
 data both client- and server-side. The data schema can be found in the file schemas.py.
+
+# Tests
+
+The codebase was tested using the Pytest Framework. You can run the tests with the command "pytest . -n auto --cov". 
+This command also outputs a test coverage report.
